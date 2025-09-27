@@ -81,14 +81,14 @@ const changeColor = (event) => {
   return (
     <>
     <Router>
-    <Navbar tittle="TextUtils" about="About TextUtils" mode={mode} toggle={toggle} changeColor={changeColor}/>
+    <Navbar tittle="TextUtils" about="About TextUtils" color={color} mode={mode} toggle={toggle} changeColor={changeColor}/>
     <Alert alert={alert} />
 
       <Routes>
         <Route exact path="/" element={<div className="container my-3">
           <TextArea text="Enter Text Here" mode={mode} color={color} showalert={showalert}/>
           </div>} />
-        <Route exact path="/about" element={<About />} />
+        <Route exact path="/about" element={<About mode={mode} color={color}/>} />
       </Routes>
 
     </Router>

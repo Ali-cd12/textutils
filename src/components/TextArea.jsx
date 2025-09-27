@@ -24,7 +24,7 @@ export default function TextArea(props) {
 
     function clear(event){
         event.preventDefault();
-        setText(" ");
+        setText("");
         props.showalert("success", "Cleared Text");
     }
 
@@ -67,12 +67,12 @@ export default function TextArea(props) {
         <div className="mb-3">
         <textarea className="form-control" id="exampleFormControlTextarea1" onChange={edit} value={text} placeholder='Your Text Here' rows="6" style={{color: props.mode === 'light'? 'black':'white', backgroundColor: props.mode === 'light'? 'white':props.color}}></textarea>
         </div>
-        <button className="btn btn-primary mx-3" onClick={UpperCase} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Convert To UpperCase</button>
-        <button className="btn btn-primary mx-3" onClick={LowerCase} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Convert To LowerCase</button>
-        <button className="btn btn-primary mx-3" onClick={clear} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Clear Text</button>
-        <button className="btn btn-primary mx-3" onClick={download} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Download as txt file</button>
-        <button className="btn btn-primary mx-3" onClick={speak} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Hear Text</button>
-        <button className="btn btn-primary mx-3" onClick={extraSpace} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Remove Extra Spaces</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={UpperCase} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Convert To UpperCase</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={LowerCase} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Convert To LowerCase</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={clear} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Clear Text</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={download} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Download as txt file</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={speak} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Hear Text</button>
+        <button className="btn btn-primary mx-3 my-1" disabled={text.length == 0} onClick={extraSpace} style={{backgroundColor: props.color == 'white'? '': props.color, borderColor: props.color == 'white'? '': 'white'}}>Remove Extra Spaces</button>
         </form>
     </div>
     <div className="container my-5" style={{color: props.mode === 'light'? 'black':'white'}}>
@@ -80,7 +80,7 @@ export default function TextArea(props) {
         <p>{text.trim().split(/\s+/).filter(Boolean).length} Words and {text.length} Letters</p>
         <p>{text.trim().split(/\s+/).filter(Boolean).length * 0.004} Minutes needed to read</p>
         <h3>Preview</h3>
-        <p>{text.length>0? text: "Enter Text above to preview here!"}</p>
+        <p>{text.length>0? text: "Nothing To preview"}</p>
     </div>
     </>
   )
